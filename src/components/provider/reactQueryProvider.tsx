@@ -8,7 +8,7 @@ interface ProviderProps {
 
 const queryClient = new QueryClient();
 
-export default function ReactQueryProvider({ children }: ProviderProps) {
+export function ReactQueryProvider({ children }: ProviderProps) {
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
