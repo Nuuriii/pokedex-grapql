@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ReduxProvider>
-          <ReactQueryProvider>{children}</ReactQueryProvider>
+          <ReactQueryProvider>
+            <main>{children}</main>
+          </ReactQueryProvider>
         </ReduxProvider>
       </body>
     </html>
