@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Image from "next/image";
 
 export default function FetchData() {
   const [limit, setLimit] = useState(10);
@@ -27,7 +28,14 @@ export default function FetchData() {
         {list.map((pokemon: any) => (
           <li key={pokemon.id}>
             <p>{pokemon.name}</p>
-            <img src={pokemon.artwork} alt={pokemon.name} width="100" />
+            <Image
+              className="h-[100px] w-auto"
+              src={pokemon.artwork}
+              alt={pokemon.name}
+              width={0}
+              height={0}
+              sizes="100vw"
+            />
           </li>
         ))}
       </ul>
