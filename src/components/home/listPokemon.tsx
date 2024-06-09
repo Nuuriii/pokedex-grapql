@@ -35,13 +35,16 @@ export default function ListPokemon() {
   };
 
   return (
-    <div className="">
-      <ul className="grid justify-items-center grid-cols-4 gap-3">
+    <div className="my-[40px]">
+      <ul className="grid justify-items-center grid-cols-4 gap-y-8 xl:grid-cols-5">
         {isFetching && !isLoadingMore ? (
           <h1 className="text-black">Loading. . .</h1>
         ) : (
-          pokemonList?.map((pokemon: any) => (
-            <li key={pokemon.id}>
+          pokemonList?.map((pokemon: any, index: number) => (
+            <li
+              className="w-[200px] flex justify-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-md p-0"
+              key={index}
+            >
               <PokemonCard
                 limit={limit}
                 img={pokemon.artwork}
@@ -51,9 +54,11 @@ export default function ListPokemon() {
           ))
         )}
       </ul>
-      <Button onClick={handleLoadMore} disabled={isLoadingMore}>
-        {isLoadingMore ? "Loading..." : "Load More"}
-      </Button>
+      <div className="flex justify-center mt-[40px]">
+        <Button onClick={handleLoadMore} disabled={isLoadingMore}>
+          {isLoadingMore ? "Loading..." : "Load More"}
+        </Button>
+      </div>
     </div>
   );
 }

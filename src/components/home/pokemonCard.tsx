@@ -77,6 +77,38 @@ export function PokemonCard({ name, img, limit }: PokemonCardProps) {
         return "outline-orange-500";
       case "flying":
         return "outline-purple-600";
+      case "grass":
+        return "outline-green-600";
+      case "poison":
+        return "outline-fuchsia-800";
+      case "fighting":
+        return "outline-red-500";
+      case "ground":
+        return "outline-yellow-900";
+      case "rock":
+        return "outline-stone-500";
+      case "bug":
+        return "outline-amber-500";
+      case "water":
+        return "outline-blue-500";
+      case "normal":
+        return "outline-neutral-600";
+      case "ghost":
+        return "outline-indigo-500";
+      case "electric":
+        return "outline-yellow-500";
+      case "psychic":
+        return "outline-pink-700";
+      case "ice":
+        return "outline-cyan-400";
+      case "dragon":
+        return "outline-violet-500";
+      case "fairy":
+        return "outline-pink-400";
+      case "dark":
+        return "outline-zinc-900";
+      case "steel":
+        return "outline-slate-500";
       default:
         break;
     }
@@ -128,7 +160,6 @@ export function PokemonCard({ name, img, limit }: PokemonCardProps) {
   const typeIcon = (type: string) => {
     switch (type) {
       case "fire":
-        colorType = "outline-orange-500";
         return (
           <>
             <BsFire size={12} className="text-orange-500" />
@@ -138,7 +169,6 @@ export function PokemonCard({ name, img, limit }: PokemonCardProps) {
           </>
         );
       case "flying":
-        colorType = "outline-violet-600";
         return (
           <>
             <GiFeatheredWing size={12} className="text-purple-500" />
@@ -148,7 +178,6 @@ export function PokemonCard({ name, img, limit }: PokemonCardProps) {
           </>
         );
       case "grass":
-        colorType = "outline-violet-600";
         return (
           <>
             <GiHighGrass size={12} className="text-green-600" />
@@ -158,7 +187,6 @@ export function PokemonCard({ name, img, limit }: PokemonCardProps) {
           </>
         );
       case "poison":
-        colorType = "outline-violet-600";
         return (
           <>
             <GiPoisonGas size={16} className="text-fuchsia-800" />
@@ -297,19 +325,21 @@ export function PokemonCard({ name, img, limit }: PokemonCardProps) {
   };
 
   return (
-    <div>
+    <>
       <Dialog open={openModal} onOpenChange={setOpenModal}>
-        <DialogTrigger>
+        <DialogTrigger className="w-full h-full flex flex-col items-center py-[30px]">
           <Image
             height={0}
             width={0}
             sizes="100vw"
-            className={`h-[80px] w-auto ${imageLoaded ? "opacity-100" : "opacity-0"} transition-all duration-500`}
+            className={`h-[120px] w-auto ${imageLoaded ? "opacity-100" : "opacity-0"} transition-all duration-500`}
             src={imageLoaded ? img : DefaultImg}
             alt=""
             onLoad={() => setImageLoaded(true)}
           />
-          <h1>{name}</h1>
+          <h1 className="text-lg">
+            {name.charAt(0).toUpperCase() + name.slice(1)}
+          </h1>
         </DialogTrigger>
         <DialogContent className="w-[300px]">
           <DialogHeader>
@@ -376,6 +406,6 @@ export function PokemonCard({ name, img, limit }: PokemonCardProps) {
           </DialogHeader>
         </DialogContent>
       </Dialog>
-    </div>
+    </>
   );
 }
