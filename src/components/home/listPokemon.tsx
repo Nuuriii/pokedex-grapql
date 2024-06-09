@@ -36,13 +36,13 @@ export default function ListPokemon() {
 
   return (
     <div className="my-[40px]">
-      <ul className="grid justify-items-center grid-cols-4 gap-y-8 xl:grid-cols-5">
+      <ul className="grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 xl:grid-cols-5">
         {isFetching && !isLoadingMore ? (
           <h1 className="text-black">Loading. . .</h1>
         ) : (
           pokemonList?.map((pokemon: any, index: number) => (
             <li
-              className="w-[200px] flex justify-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-md p-0"
+              className="w-full sm:w-[130px] min-[500px]:w-[200px] flex justify-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-md p-0 hover:bg-neutral-100 hover:scale-110 transition-all duration-200"
               key={index}
             >
               <PokemonCard

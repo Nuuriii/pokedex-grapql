@@ -332,12 +332,12 @@ export function PokemonCard({ name, img, limit }: PokemonCardProps) {
             height={0}
             width={0}
             sizes="100vw"
-            className={`h-[120px] w-auto ${imageLoaded ? "opacity-100" : "opacity-0"} transition-all duration-500`}
+            className={`sm:h-[80px] md:h-[120px] w-auto ${imageLoaded ? "opacity-100" : "opacity-0"} transition-all duration-500`}
             src={imageLoaded ? img : DefaultImg}
             alt=""
             onLoad={() => setImageLoaded(true)}
           />
-          <h1 className="text-lg">
+          <h1 className="sm:text-md md:text-lg">
             {name.charAt(0).toUpperCase() + name.slice(1)}
           </h1>
         </DialogTrigger>
