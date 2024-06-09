@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 const GET_POKEMON_LIST = gql`
   query getPokemonList($limit: Int) {
-    pokemons(limit: $limit) {
+    pokemons(limit: $limit, offset: 0) {
       results {
         name
         url
@@ -17,8 +17,11 @@ const GET_POKEMON_DETAIL = gql`
     pokemon(name: $name) {
       id
       name
-      moves {
-        move {
+      base_experience
+      height
+      stats {
+        base_stat
+        stat {
           name
         }
       }

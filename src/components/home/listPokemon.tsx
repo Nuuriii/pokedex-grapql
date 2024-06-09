@@ -33,7 +33,6 @@ export default function ListPokemon() {
     setIsLoadingMore(true);
     setLimit((prevLimit) => prevLimit + 10);
   };
-  console.log(pokemonList);
 
   return (
     <div className="">
@@ -44,7 +43,7 @@ export default function ListPokemon() {
           pokemonList?.map((pokemon: any) => (
             <li key={pokemon.id}>
               <PokemonCard
-                loadMoreLoading={isLoadingMore}
+                limit={limit}
                 img={pokemon.artwork}
                 name={pokemon.name}
               />
